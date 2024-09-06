@@ -10,8 +10,6 @@
 ![Supports armv7 Architecture][armv7-shield]
 ![Supports armhf Architecture][armhf-shield]
 
-
-
 [![Github Actions][github-actions-shield]][github-actions]
 ![Project Maintenance][maintenance-shield]
 
