@@ -1,0 +1,71 @@
+name: "WatchYourLan"
+description: "Lightweight network IP scanner. Can be used to notify about new hosts and monitor host online/offline history"
+url: https://github.com/jeankhawand/addon-watchyourlan
+version: "1.0.0"
+slug: watchyourlan
+init: false
+host_network: true
+panel_icon: mdi:access-point-network
+panel_title: WatchYourLAN
+ingress: true
+ingress_port: 8840
+ingress_stream: true
+privileged:
+  - NET_RAW
+  - NET_ADMIN
+webui: http://[HOST]:[PORT:8840]
+hassio_role: manager
+arch:
+  - aarch64
+  - amd64
+  - armv7
+  - i386
+map:
+  - addon_config:rw
+options:
+  tz: "Europe/Paris"
+  theme: "sand"
+  color: "dark"
+  nodepath: ""
+  shoutrrrr_url: ""
+  ifaces: "docker0 eth0"
+  timeout: 120
+  arp_args: ""
+  log_level: "info"
+  trim_hist: 48
+  hist_in_db: false
+  use_db: "sqlite"
+  pg_connect: ""
+  influx_enable: false
+  influx_skip_tls: false
+  influx_addr: ""
+  influx_bucket: "test"
+  influx_org: "home"
+  influx_token: ""
+ports_description:
+  8840/tcp: Web Interface
+schema:
+  tz: str?
+  theme: str
+  color: str
+  nodepath: str?
+  shoutrrrr_url: str?
+  ifaces: str
+  timeout: int
+  arp_args: str?
+  log_level: list(debug|info|warn|error)
+  trim_hist: int
+  hist_in_db: bool
+  use_db: list(sqlite|postgres)
+  pg_connect: str?
+  influx_enable: bool
+  influx_skip_tls: bool
+  influx_addr: str?
+  influx_bucket: str?
+  influx_org: str?
+  influx_token: str?
+
+ports:
+  8840/tcp: 8840
+
+image:

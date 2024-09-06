@@ -1,0 +1,56 @@
+#!/usr/bin/with-contenv bashio
+# shellcheck shell=bash
+
+# Declare variables
+declare TZ THEME COLOR NODEPATH SHOUTRRR_URL IFACES TIMEOUT ARP_ARGS LOG_LEVEL TRIM_HIST HIST_IN_DB USE_DB PG_CONNECT
+declare INFLUX_ENABLE INFLUX_SKIP_TLS INFLUX_ADDR INFLUX_BUCKET INFLUX_ORG INFLUX_TOKEN
+
+# Get configuration values from the user config options
+TZ=$(bashio::config 'tz')
+THEME=$(bashio::config 'theme')
+COLOR=$(bashio::config 'color')
+NODEPATH=$(bashio::config 'nodepath')
+SHOUTRRR_URL=$(bashio::config 'shoutrrrr_url')
+IFACES=$(bashio::config 'ifaces')
+TIMEOUT=$(bashio::config 'timeout')
+ARP_ARGS=$(bashio::config 'arp_args')
+LOG_LEVEL=$(bashio::config 'log_level')
+TRIM_HIST=$(bashio::config 'trim_hist')
+HIST_IN_DB=$(bashio::config 'hist_in_db')
+USE_DB=$(bashio::config 'use_db')
+PG_CONNECT=$(bashio::config 'pg_connect')
+INFLUX_ENABLE=$(bashio::config 'influx_enable')
+INFLUX_SKIP_TLS=$(bashio::config 'influx_skip_tls')
+INFLUX_ADDR=$(bashio::config 'influx_addr')
+INFLUX_BUCKET=$(bashio::config 'influx_bucket')
+INFLUX_ORG=$(bashio::config 'influx_org')
+INFLUX_TOKEN=$(bashio::config 'influx_token')
+# Export environment variables
+export TZ THEME COLOR NODEPATH SHOUTRRR_URL IFACES TIMEOUT ARP_ARGS LOG_LEVEL TRIM_HIST HIST_IN_DB USE_DB PG_CONNECT
+export INFLUX_ENABLE INFLUX_SKIP_TLS INFLUX_ADDR INFLUX_BUCKET INFLUX_ORG INFLUX_TOKEN
+
+# Log the environment variables
+bashio::log.info "Provisioning environment variables based on options panel:"
+bashio::log.info "TZ=${TZ}"
+bashio::log.info "THEME=${THEME}"
+bashio::log.info "COLOR=${COLOR}"
+bashio::log.info "NODEPATH=${NODEPATH}"
+bashio::log.info "SHOUTRRR_URL=${SHOUTRRR_URL}"
+bashio::log.info "IFACES=${IFACES}"
+bashio::log.info "TIMEOUT=${TIMEOUT}"
+bashio::log.info "ARP_ARGS=${ARP_ARGS}"
+bashio::log.info "LOG_LEVEL=${LOG_LEVEL}"
+bashio::log.info "TRIM_HIST=${TRIM_HIST}"
+bashio::log.info "HIST_IN_DB=${HIST_IN_DB}"
+bashio::log.info "USE_DB=${USE_DB}"
+bashio::log.info "PG_CONNECT=${PG_CONNECT}"
+bashio::log.info "INFLUX_ENABLE=${INFLUX_ENABLE}"
+bashio::log.info "INFLUX_SKIP_TLS=${INFLUX_SKIP_TLS}"
+bashio::log.info "INFLUX_ADDR=${INFLUX_ADDR}"
+bashio::log.info "INFLUX_BUCKET=${INFLUX_BUCKET}"
+bashio::log.info "INFLUX_ORG=${INFLUX_ORG}"
+bashio::log.info "INFLUX_TOKEN=${INFLUX_TOKEN}"
+bashio::log.info "Starting WatchYourLan..."
+# Run WatchYourLan
+bashio::log.info "Running WatchYourLan 0.0.0.0:8840"
+exec /usr/bin/watchyourlan -d /etc/watchyourlan/
