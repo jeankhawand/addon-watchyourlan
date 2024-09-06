@@ -23,7 +23,7 @@ RUN case "$TARGETARCH" in \
     "aarch64") arch="arm64" ;; \
     "x86_64") arch="amd64";; \
     "i386") arch="386" ;; \
-    *) echo "Unsupported architecture"; exit 1 ;; \
+    *) arch="$TARGETARCH" ;; \
     esac && \
     wget -O /usr/watchyourlan.tar.gz "https://github.com/aceberg/WatchYourLAN/releases/download/${VERSION}/watchyourlan_${VERSION}_linux_${arch}.tar.gz" && \
     tar -xzf /usr/watchyourlan.tar.gz -C /usr/bin --strip-components=1 "watchyourlan_${VERSION}_linux_${arch}/watchyourlan" && \
