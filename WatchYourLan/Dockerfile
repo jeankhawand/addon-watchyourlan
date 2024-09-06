@@ -16,9 +16,12 @@ SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 # Set S6 verbosity level
 ENV S6_VERBOSITY=1
 
+RUN echo "architecture: $TARGETARCH"
+
 # hadolint ignore=DL3047
-RUN case "$(uname -m)" in \
+RUN case "$TARGETARCH" in \
     "aarch64") arch="arm64" ;; \
+    "x86_64") arch="amd64";; \
     "i386") arch="386" ;; \
     *) echo "Unsupported architecture"; exit 1 ;; \
     esac && \
