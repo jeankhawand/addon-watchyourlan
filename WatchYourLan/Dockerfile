@@ -16,14 +16,12 @@ SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 # Set S6 verbosity level
 ENV S6_VERBOSITY=1
 
-RUN echo "architecture: $TARGETARCH"
-
 # hadolint ignore=DL3047
-RUN case "$TARGETARCH" in \
+RUN case "$BUILD_ARCH" in \
     "aarch64") arch="arm64" ;; \
     "x86_64") arch="amd64";; \
     "i386") arch="386" ;; \
-    *) arch="$TARGETARCH" ;; \
+    *) arch="$BUILD_ARCH" ;; \
     esac && \
     wget -O /usr/watchyourlan.tar.gz "https://github.com/aceberg/WatchYourLAN/releases/download/${VERSION}/watchyourlan_${VERSION}_linux_${arch}.tar.gz" && \
     tar -xzf /usr/watchyourlan.tar.gz -C /usr/bin --strip-components=1 "watchyourlan_${VERSION}_linux_${arch}/watchyourlan" && \
