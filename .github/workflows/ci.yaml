@@ -65,26 +65,6 @@ jobs:
         with:
           dockerfile: "./${{ needs.information.outputs.target }}/Dockerfile"
 
-  lint-json:
-    name: JSON Lint
-    runs-on: ubuntu-latest
-    steps:
-      - name: ⤵️ Check out code from GitHub
-        uses: actions/checkout@v4
-      - name: 🚀 Run JQ
-        run: |
-          shopt -s globstar
-          cat **/*.json | jq '.'
-
-  lint-markdown:
-    name: MarkdownLint
-    runs-on: ubuntu-latest
-    steps:
-      - name: ⤵️ Check out code from GitHub
-        uses: actions/checkout@v4
-      - name: 🚀 Run mdl
-        uses: actionshub/markdownlint@v3.1.4
-
   lint-shellcheck:
     name: Shellcheck
     runs-on: ubuntu-latest
@@ -102,8 +82,8 @@ jobs:
     steps:
       - name: ⤵️ Check out code from GitHub
         uses: actions/checkout@v4
-      - name: 🚀 Run YAMLLint
-        uses: frenck/action-yamllint@v1.5
+      - name: 🚀 Run Ansible-lint
+        uses: ansible/ansible-lint@main
 
   lint-prettier:
     name: Prettier
@@ -122,8 +102,6 @@ jobs:
       - information
       - lint-addon
       - lint-hadolint
-      - lint-json
-      - lint-markdown
       - lint-prettier
       - lint-shellcheck
       - lint-yamllint

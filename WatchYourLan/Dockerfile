@@ -1,4 +1,5 @@
 ARG BUILD_FROM
+# hadolint ignore=DL3006
 FROM $BUILD_FROM
 # Setup base
 ARG BUILD_ARCH=aarch64
@@ -15,16 +16,11 @@ SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 # Set S6 verbosity level
 ENV S6_VERBOSITY=1
 
-# Download and install the APK based on architecture
-RUN echo "http://dl-cdn.alpinelinux.org/alpine/edge/community" >> /etc/apk/repositories && \
-    apk update && \
-    apk add --no-cache arp-scan wget
-
-# Determine architecture and download/install WatchYourLAN
+# hadolint ignore=DL3047
 RUN case "$(uname -m)" in \
-        "aarch64") arch="arm64" ;; \
-        "i386") arch="386" ;; \
-        *) echo "Unsupported architecture"; exit 1 ;; \
+    "aarch64") arch="arm64" ;; \
+    "i386") arch="386" ;; \
+    *) echo "Unsupported architecture"; exit 1 ;; \
     esac && \
     wget -O /usr/watchyourlan.tar.gz "https://github.com/aceberg/WatchYourLAN/releases/download/${VERSION}/watchyourlan_${VERSION}_linux_${arch}.tar.gz" && \
     tar -xzf /usr/watchyourlan.tar.gz -C /usr/bin --strip-components=1 "watchyourlan_${VERSION}_linux_${arch}/watchyourlan" && \

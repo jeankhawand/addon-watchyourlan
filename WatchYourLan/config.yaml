@@ -1,7 +1,7 @@
 name: "WatchYourLan"
 description: "Lightweight network IP scanner. Can be used to notify about new hosts and monitor host online/offline history"
 url: https://github.com/jeankhawand/addon-watchyourlan
-version: "1.0.0"
+version: dev
 slug: watchyourlan
 init: false
 host_network: true
@@ -13,7 +13,6 @@ ingress_stream: true
 privileged:
   - NET_RAW
   - NET_ADMIN
-webui: http://[HOST]:[PORT:8840]
 hassio_role: manager
 arch:
   - aarch64
@@ -67,5 +66,3 @@ schema:
 
 ports:
   8840/tcp: 8840
-
-image:

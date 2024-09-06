@@ -13,7 +13,8 @@
 [![Github Actions][github-actions-shield]][github-actions]
 ![Project Maintenance][maintenance-shield]
 
-Lightweight network IP scanner. Can be used to notify about new hosts and monitor host online/offline history
+Lightweight network IP scanner.
+Can be used to notify about new hosts and monitor host online/offline history
 
 ## Installation
 
@@ -30,7 +31,7 @@ Feel free to [open an issue here][issue] on GitHub.
 
 ## Authors & contributors
 
-The original setup of this repository is by [Jean Khawand][jeankhawand].
+The original setup of this repository is by Jean Khawand.
 
 For a full list of all authors and contributors,
 check [the contributor's page][contributors].
@@ -64,7 +65,6 @@ SOFTWARE.
 [armhf-shield]: https://img.shields.io/badge/armhf-no-red.svg
 [armv7-shield]: https://img.shields.io/badge/armv7-yes-green.svg
 [contributors]: https://github.com/jeankhawand/addon-watchyourlan/graphs/contributors
-[docs]: watchyourlan/DOCS.md
 [github-actions-shield]: https://github.com/jeankhawand/addon-watchyourlan/workflows/CI/badge.svg
 [github-actions]: https://github.com/jeankhawand/addon-watchyourlan/actions
 [ha-addons]: https://github.com/jeankhawand/ha-addons
@@ -75,7 +75,6 @@ SOFTWARE.
 [project-stage-shield]: https://img.shields.io/badge/project%20stage-production%20ready-brightgreen.svg
 [releases-shield]: https://img.shields.io/github/v/release/jeankhawand/addon-watchyourlan?include_prereleases
 [releases]: https://github.com/jeankhawand/addon-watchyourlan/releases
-[jean]: https://github.com/jeankhawand
+[jeankhawand]: https://github.com/jeankhawand
 [my-ha-badge]: https://my.home-assistant.io/badges/supervisor_add_addon_repository.svg
 [my-ha-url]: https://my.home-assistant.io/redirect/supervisor_add_addon_repository/?repository_url=https%3A%2F%2Fgithub.com%2Fjeankhawand%2Fha-addons
-
