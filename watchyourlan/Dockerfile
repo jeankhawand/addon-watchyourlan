@@ -16,6 +16,11 @@ SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 # Set S6 verbosity level
 ENV S6_VERBOSITY=1
 
+# Download and install dependencies
+RUN echo "http://dl-cdn.alpinelinux.org/alpine/edge/community" >> /etc/apk/repositories && \
+    apk update && \
+    apk add --no-cache arp-scan wget
+
 # hadolint ignore=DL3047
 RUN case "$BUILD_ARCH" in \
     "aarch64") arch="arm64" ;; \
