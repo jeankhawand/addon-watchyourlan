@@ -1,4 +1,4 @@
-name: "WatchYourLan"
+name: "WatchYourLAN"
 description: "Lightweight network IP scanner. Can be used to notify about new hosts and monitor host online/offline history"
 url: https://github.com/jeankhawand/addon-watchyourlan
 version: dev
