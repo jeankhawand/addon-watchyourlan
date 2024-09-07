@@ -151,7 +151,7 @@ jobs:
       - name: 🚀 Dispatch repository updater update signal
         uses: peter-evans/repository-dispatch@v3
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.DISPATCH_TOKEN }}
           repository: ${{ github.repository_owner }}/ha-addons-edge
           event-type: update
           client-payload: >
@@ -175,7 +175,7 @@ jobs:
       - name: 🚀 Dispatch repository updater update signal
         uses: peter-evans/repository-dispatch@v3
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.DISPATCH_TOKEN }}
           repository: ${{ github.repository_owner }}/ha-addons
           event-type: update
           client-payload: >
