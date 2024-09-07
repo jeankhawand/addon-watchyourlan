@@ -17,6 +17,7 @@ SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 ENV S6_VERBOSITY=1
 
 # Download and install dependencies
+# hadolint ignore=DL3018
 RUN echo "http://dl-cdn.alpinelinux.org/alpine/edge/community" >> /etc/apk/repositories && \
     apk update && \
     apk add --no-cache arp-scan wget
