@@ -8,7 +8,6 @@ host_network: true
 panel_icon: mdi:access-point-network
 panel_title: WatchYourLAN
 ingress: true
-ingress_port: 8840
 ingress_stream: true
 privileged:
   - NET_RAW
@@ -41,8 +40,7 @@ options:
   influx_bucket: "test"
   influx_org: "home"
   influx_token: ""
-ports_description:
-  8840/tcp: Web Interface
+
 schema:
   tz: str?
   theme: str
@@ -63,6 +61,3 @@ schema:
   influx_bucket: str?
   influx_org: str?
   influx_token: str?
-
-ports:
-  8840/tcp: 8840

@@ -1,0 +1,7 @@
+#!/command/with-contenv bashio
+# shellcheck shell=bash
+
+# Wait for WatchYourLAN to be available
+bashio::net.wait_for 8840
+bashio::log.info "Starting NIGNX..."
+exec nginx

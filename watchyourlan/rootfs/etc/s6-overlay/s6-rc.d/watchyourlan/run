@@ -51,6 +51,4 @@ bashio::log.info "INFLUX_BUCKET=${INFLUX_BUCKET}"
 bashio::log.info "INFLUX_ORG=${INFLUX_ORG}"
 bashio::log.info "INFLUX_TOKEN=${INFLUX_TOKEN}"
 bashio::log.info "Starting WatchYourLan..."
-# Run WatchYourLan
-bashio::log.info "Running WatchYourLan 0.0.0.0:8840"
 exec /usr/bin/watchyourlan -d /etc/watchyourlan/

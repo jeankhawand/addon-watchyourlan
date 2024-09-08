@@ -20,7 +20,7 @@ ENV S6_VERBOSITY=1
 # hadolint ignore=DL3018
 RUN echo "http://dl-cdn.alpinelinux.org/alpine/edge/community" >> /etc/apk/repositories && \
     apk update && \
-    apk add --no-cache arp-scan wget
+    apk add --no-cache arp-scan wget nginx
 
 # hadolint ignore=DL3047
 RUN case "$BUILD_ARCH" in \
