@@ -19,7 +19,9 @@ arch:
   - armv7
   - i386
 map:
-  - addon_config:rw
+  - type: addon_config
+    read_only: false
+    path: /etc/watchyourlan
 options:
   tz: "Europe/Paris"
   theme: "sand"
